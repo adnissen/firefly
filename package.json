@@ -1,0 +1,12 @@
+{
+  "name": "nw-demo",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "width": 780,
+    "height": 480
+  },
+  "dependencies": {
+    "irc": "^0.3.7"
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/onepcssgrid.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <h2>Firefly</h2>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="index">
+    <input id='serverEntry' value="irc.synirc.net" type='text' placeholder='server'></input><br>
+    <input id='nickEntry' value="alll" type='text' placeholder='nick'></input><br>
+    <input id='channelEntry' value="testing" type='text' placeholder='channel'></input><br>
+    <button {{action 'connectToServer'}}>Connect</button>
+    {{outlet}}
+
+    {{#each}}
+    {{message}}<br><br>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" id="channel">
+    <h4>{{channelName}}</h4>
+    <div class='onepcssgrid-1200'>
+      <div class='onerow'>
+        <div class='col10'>
+          <div class='messagesArea'>
+            {{#each}}
+            {{#if message}}
+            <strong><{{nick}}></strong> {{message}}<br>
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        <div class='col2 last'>
+          {{#each user}}
+            {{user}}<br>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{input id="messageEntry" type="text" action="sendMessage"}}
+  </script>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.7.0.js"></script>
+  <script src="js/ember-data.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
